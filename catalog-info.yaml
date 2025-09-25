@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: go-eqiilyco-gitops
+  description: This is GitOps manifest for go-eqiilyco   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=go-eqiilyco
+    backstage.io/kubernetes-id: go-eqiilyco 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: go-eqiilyco
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:go-eqiilyco
